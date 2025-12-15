@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./main.css" />
+
+    <title>Frontend Mentor | Age calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Trade+Winds&display=swap" rel="stylesheet">
+    </style>
+  </head>
+  <body>
+    <form>
+      <!-- Date of birth -->
+      <section id="dob">
+        <div >
+          <label class="age">
+            day
+            <br />
+            <input type="text" maxlength="2" value="24" class="input" name="day" />
+          </label>
+        </div>
+
+        <div>
+          <label class="age"
+            >month
+            <br />
+            <input type="text" maxlength="02" value="09" class="input" name="month"/>
+          </label>
+        </div>
+
+        <div>
+          <label class="age">
+            year
+            <br />
+            <input type="text" maxlength="4" value="1984" class="input" name="year"/>
+          </label>
+        </div>
+      </section>
+      <!-- end of Date of birth -->
+
+      <!-- icon and underline -->
+      <section class="midsection">
+        <hr />
+        <button id="buttonimg" type="submit">
+          <img src="./assets/images/icon-arrow.svg" alt="arrow" />
+        </button>
+      </section>
+      <!-- end of icon and underline -->
+
+      <!-- results -->
+      <section class="results">
+        <div>
+          <h1><span id="years"> - -</span> years</h1>
+        </div>
+
+        <div>
+          <h1><span id="months">- -</span> months</h1>
+        </div>
+
+        <div>
+          <h1><span id="days">- -</span> days</h1>
+        </div>
+      </section>
+      <!-- end of results -->
+    </form>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
