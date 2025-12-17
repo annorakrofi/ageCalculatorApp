@@ -9,37 +9,68 @@ formElement.addEventListener("submit", (e) => {
   const yearInputValue = formData.get("year");
   const monthInputValue = formData.get("month");
   const dayInputValue = formData.get("day");
-  console.log(`year Input Value: ${yearInputValue}`);
+  //   console.log(`year Input Value: ${yearInputValue}`);
 
+  const userBirthDate = new Date(
+    yearInputValue,
+    monthInputValue,
+    dayInputValue
+  );
   const now = new Date();
 
-  //years calculation
+  let ageInYears = now.getFullYear() - userBirthDate.getFullYear();
+  let ageInMonths = now.getMonth() - userBirthDate.getMonth();
+  let ageInDays = now.getDate() - userBirthDate.getDate();
 
-  const currentYear = now.getFullYear();
-  console.log(`current year: ${currentYear}`);
+  if (ageInDays < 0) {
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    ageInDays += prevMonth.getDate();
+  }
+  if (ageInMonths < 0) {
+    ageInYears--;
+    ageInMonths += 12;
+  }
+  yearsValueElement.textContent = ageInYears;
+  monthsValueElement.textContent = ageInMonths;
+  daysValueElement.textContent = ageInDays;
 
-  const usersYear = currentYear - yearInputValue;
-  console.log(`users age in years: ${usersYear}`);
+  //   //old calculation method
+  //   const now = new Date();
+  //   const usercurrentDate = new Date(
+  //     yearInputValue,
+  //     monthInputValue - 1,
+  //     dayInputValue
+  //   );
+  //   console.log(`current date: ${now}`);
+  //   console.log(`user date: ${usercurrentDate}`);
 
-  yearsValueElement.textContent = usersYear;
+  //   //years calculation
 
-  //months calculation
+  //   const currentYear = now.getFullYear();
+  //   console.log(`current year: ${currentYear}`);
 
-  const currentMonth = now.getMonth();
-  console.log(`current month: ${currentMonth}`);
+  //   const usersYear = currentYear - yearInputValue;
+  //   console.log(`users age in years: ${usersYear}`);
 
-  const usersMonth = currentMonth - monthInputValue;
-  console.log(`users month: ${usersMonth}`);
+  //   yearsValueElement.textContent = usersYear;
 
-  monthsValueElement.textContent = usersMonth;
+  //   //months calculation
 
-  //days calculation
+  //   const currentMonth = now.getMonth();
+  //   console.log(`current month: ${currentMonth}`);
 
-  const currentDay = now.getDay();
-  console.log(`current day: ${currentDay}`);
+  //   const usersMonth = currentMonth - monthInputValue;
+  //   console.log(`users month: ${usersMonth}`);
 
-  const usersDay = currentDay - dayInputValue;
-  console.log(`users month: ${usersMonth}`);
+  //   monthsValueElement.textContent = usersMonth;
 
-  daysValueElement.textContent = usersDay;
+  //   //days calculation
+
+  //   const currentDay = now.getDay();
+  //   console.log(`current day: ${currentDay}`);
+
+  //   const usersDay = currentDay - dayInputValue;
+  //   console.log(`users month: ${usersMonth}`);
+
+  //   daysValueElement.textContent = usersDay;
 });
